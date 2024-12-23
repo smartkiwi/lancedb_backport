@@ -44,13 +44,13 @@ class OllamaEmbeddings(TextEmbeddingFunction):
 
     def generate_embeddings(
         self, texts: Union[List[str], "np.ndarray"]
-    ) -> list[Union["np.array", None]]:
+    ) -> List[Union["np.array", None]]:
         """
         Get the embeddings for the given texts
 
         Parameters
         ----------
-        texts: list[str] or np.ndarray (of str)
+        texts: List[str] or np.ndarray (of str)
             The texts to embed
         """
         # TODO retry, rate limit, token limit

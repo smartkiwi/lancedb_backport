@@ -6,7 +6,7 @@ class Connection(object):
     uri: str
     async def table_names(
         self, start_after: Optional[str], limit: Optional[int]
-    ) -> list[str]: ...
+    ) -> List[str]: ...
     async def create_table(
         self,
         name: str,

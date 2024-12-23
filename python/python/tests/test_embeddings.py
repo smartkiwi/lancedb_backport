@@ -88,7 +88,7 @@ def test_embedding_with_bad_results(tmp_path):
 
         def generate_embeddings(
             self, texts: Union[List[str], np.ndarray]
-        ) -> list[Union[np.array, None]]:
+        ) -> List[Union[np.array, None]]:
             # Return None, which is bad if field is non-nullable
             a = [
                 np.full(self.ndims(), np.nan)
@@ -127,7 +127,7 @@ def test_embedding_with_bad_results(tmp_path):
 
         def generate_embeddings(
             self, texts: Union[List[str], np.ndarray]
-        ) -> list[Union[np.array, None]]:
+        ) -> List[Union[np.array, None]]:
             # Return NaN to produce bad vectors
             return [
                 [np.NAN] * 128 if i % 2 == 0 else np.random.randn(self.ndims())

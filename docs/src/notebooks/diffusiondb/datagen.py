@@ -24,6 +24,7 @@ import lance
 import pyarrow as pa
 from datasets import load_dataset
 from transformers import CLIPModel, CLIPProcessor, CLIPTokenizerFast
+from typing import List
 
 
 MODEL_ID = "openai/clip-vit-base-patch32"
@@ -52,7 +53,7 @@ schema = pa.schema(
 )
 
 
-def pil_to_bytes(img) -> list[bytes]:
+def pil_to_bytes(img) -> List[bytes]:
     buf = io.BytesIO()
     img.save(buf, format="PNG")
     return buf.getvalue()

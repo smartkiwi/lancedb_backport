@@ -37,7 +37,7 @@ class EmbeddingFunction(BaseModel, ABC):
         return cls(**kwargs)
 
     @abstractmethod
-    def compute_query_embeddings(self, *args, **kwargs) -> list[Union[np.array, None]]:
+    def compute_query_embeddings(self, *args, **kwargs) -> List[Union[np.array, None]]:
         """
         Compute the embeddings for a given user query
 
@@ -49,7 +49,7 @@ class EmbeddingFunction(BaseModel, ABC):
         pass
 
     @abstractmethod
-    def compute_source_embeddings(self, *args, **kwargs) -> list[Union[np.array, None]]:
+    def compute_source_embeddings(self, *args, **kwargs) -> List[Union[np.array, None]]:
         """Compute the embeddings for the source column in the database
 
         Returns
@@ -61,7 +61,7 @@ class EmbeddingFunction(BaseModel, ABC):
 
     def compute_query_embeddings_with_retry(
         self, *args, **kwargs
-    ) -> list[Union[np.array, None]]:
+    ) -> List[Union[np.array, None]]:
         """Compute the embeddings for a given user query with retries
 
         Returns
@@ -78,7 +78,7 @@ class EmbeddingFunction(BaseModel, ABC):
 
     def compute_source_embeddings_with_retry(
         self, *args, **kwargs
-    ) -> list[Union[np.array, None]]:
+    ) -> List[Union[np.array, None]]:
         """Compute the embeddings for the source column in the database with retries.
 
         Returns
@@ -164,18 +164,18 @@ class TextEmbeddingFunction(EmbeddingFunction):
 
     def compute_query_embeddings(
         self, query: str, *args, **kwargs
-    ) -> list[Union[np.array, None]]:
+    ) -> List[Union[np.array, None]]:
         return self.compute_source_embeddings(query, *args, **kwargs)
 
     def compute_source_embeddings(
         self, texts: TEXT, *args, **kwargs
-    ) -> list[Union[np.array, None]]:
+    ) -> List[Union[np.array, None]]:
         texts = self.sanitize_input(texts)
         return self.generate_embeddings(texts)
 
     @abstractmethod
     def generate_embeddings(
         self, texts: Union[List[str], np.ndarray], *args, **kwargs
-    ) -> list[Union[np.array, None]]:
+    ) -> List[Union[np.array, None]]:
         """Generate the embeddings for the given texts"""
         pass

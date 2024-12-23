@@ -70,7 +70,7 @@ class SentenceTransformerEmbeddings(TextEmbeddingFunction):
 
         Parameters
         ----------
-        texts: list[str] or np.ndarray (of str)
+        texts: List[str] or np.ndarray (of str)
             The texts to embed
         """
         return self.embedding_model.encode(

@@ -121,12 +121,12 @@ class BedRockText(TextEmbeddingFunction):
 
         Parameters
         ----------
-        texts: list[str] or np.ndarray (of str)
+        texts: List[str] or np.ndarray (of str)
             The texts to embed
 
         Returns
         -------
-        list[list[float]]
+        List[List[float]]
             The embeddings for the given texts
         """
         results = []
@@ -146,7 +146,7 @@ class BedRockText(TextEmbeddingFunction):
 
         Returns
         -------
-        list[float]
+        List[float]
             The embeddings for the given texts
         """
         # format input body for provider

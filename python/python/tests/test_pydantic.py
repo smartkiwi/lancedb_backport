@@ -25,10 +25,10 @@ def test_pydantic_to_arrow():
     class TestModel(pydantic.BaseModel):
         id: int
         s: str
-        vec: list[float]
-        li: list[int]
-        lili: list[list[float]]
-        litu: list[tuple[float, float]]
+        vec: List[float]
+        li: List[int]
+        lili: List[List[float]]
+        litu: List[tuple[float, float]]
         opt: Optional[str] = None
         st: StructModel
         dt: date

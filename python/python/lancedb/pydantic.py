@@ -20,8 +20,14 @@ from typing import (
     Type,
     Union,
     _GenericAlias,
-    GenericAlias,
 )
+
+# Python 3.9+ compatibility for `GenericAlias`
+try:
+    from types import GenericAlias
+except ImportError:
+    GenericAlias = type(None)  # Dummy value for Python < 3.9
+
 
 import numpy as np
 import pyarrow as pa

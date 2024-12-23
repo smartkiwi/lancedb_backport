@@ -187,7 +187,7 @@ def search_index(
 
     Returns
     -------
-    ids_and_score: list[tuple[int], tuple[float]]
+    ids_and_score: List[tuple[int], tuple[float]]
         A tuple of two tuples, the first containing the document ids
         and the second containing the scores
     """

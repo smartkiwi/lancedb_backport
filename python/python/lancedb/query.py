@@ -414,7 +414,7 @@ class LanceQueryBuilder(ABC):
             self._offset = offset
         return self
 
-    def select(self, columns: Union[list[str], dict[str, str]]) -> LanceQueryBuilder:
+    def select(self, columns: Union[List[str], dict[str, str]]) -> LanceQueryBuilder:
         """Set the columns to return.
 
         Parameters

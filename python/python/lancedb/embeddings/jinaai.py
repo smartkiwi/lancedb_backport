@@ -207,7 +207,7 @@ class JinaEmbeddings(EmbeddingFunction):
 
         Parameters
         ----------
-        texts: list[str] or np.ndarray (of str)
+        texts: List[str] or np.ndarray (of str)
             The texts to embed
         """
         self._init_client()
