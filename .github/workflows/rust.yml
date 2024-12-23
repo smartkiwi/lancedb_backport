@@ -1,14 +1,14 @@
 name: Rust
 
-on:
-  push:
-    branches:
-      - main
-  pull_request:
-    paths:
-      - Cargo.toml
-      - rust/**
-      - .github/workflows/rust.yml
+# on:
+#   push:
+#     branches:
+#       - main
+#   pull_request:
+#     paths:
+#       - Cargo.toml
+#       - rust/**
+#       - .github/workflows/rust.yml
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}

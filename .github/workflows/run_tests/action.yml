@@ -15,6 +15,8 @@ runs:
     - name: Install lancedb
       shell: bash
       run: |
+        pip3 install boto3 datasets duckdb ml_dtypes pillow pandas polars[pyarrow,pandas] pytest tensorflow tqdm ruff pre-commit
+        pip3 install https://github.com/smartkiwi/lance_backport/releases/download/v0.21.0-beta.5/pylance-0.21.0-cp38-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl
         pip3 install --extra-index-url https://pypi.fury.io/lancedb/ $(ls target/wheels/lancedb-*.whl)[tests,dev]
     - name: Setup localstack for integration tests
       if: ${{ inputs.integration == 'true' }}

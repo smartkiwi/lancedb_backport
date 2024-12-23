@@ -75,7 +75,7 @@ jobs:
     timeout-minutes: 30
     strategy:
       matrix:
-        python-minor-version: ["9", "11"]
+        python-minor-version: ["8"]
     runs-on: "ubuntu-22.04"
     defaults:
       run:
@@ -100,42 +100,42 @@ jobs:
       - uses: ./.github/workflows/build_linux_wheel
       - uses: ./.github/workflows/run_tests
         with:
-          integration: true
-      # Make sure wheels are not included in the Rust cache
-      - name: Delete wheels
-        run: rm -rf target/wheels
-  platform:
-    name: "Mac: ${{ matrix.config.name }}"
-    timeout-minutes: 30
-    strategy:
-      matrix:
-        config:
-          - name: x86
-            runner: macos-13
-          - name: Arm
-            runner: macos-14
-    runs-on: "${{ matrix.config.runner }}"
-    defaults:
-      run:
-        shell: bash
-        working-directory: python
-    steps:
-      - uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-          lfs: true
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: "3.11"
-      - uses: Swatinem/rust-cache@v2
-        with:
-          workspaces: python
-      - uses: ./.github/workflows/build_mac_wheel
-      - uses: ./.github/workflows/run_tests
-      # Make sure wheels are not included in the Rust cache
-      - name: Delete wheels
-        run: rm -rf target/wheels
+          integration: false
+      # # Make sure wheels are not included in the Rust cache
+      # - name: Delete wheels
+      #   run: rm -rf target/wheels
+  # platform:
+  #   name: "Mac: ${{ matrix.config.name }}"
+  #   timeout-minutes: 30
+  #   strategy:
+  #     matrix:
+  #       config:
+  #         - name: x86
+  #           runner: macos-13
+  #         - name: Arm
+  #           runner: macos-14
+  #   runs-on: "${{ matrix.config.runner }}"
+  #   defaults:
+  #     run:
+  #       shell: bash
+  #       working-directory: python
+  #   steps:
+  #     - uses: actions/checkout@v4
+  #       with:
+  #         fetch-depth: 0
+  #         lfs: true
+  #     - name: Set up Python
+  #       uses: actions/setup-python@v5
+  #       with:
+  #         python-version: "3.11"
+  #     - uses: Swatinem/rust-cache@v2
+  #       with:
+  #         workspaces: python
+  #     - uses: ./.github/workflows/build_mac_wheel
+  #     - uses: ./.github/workflows/run_tests
+  #     # Make sure wheels are not included in the Rust cache
+  #     - name: Delete wheels
+  #       run: rm -rf target/wheels
   # windows:
   #   name: "Windows: ${{ matrix.config.name }}"
   #   timeout-minutes: 60

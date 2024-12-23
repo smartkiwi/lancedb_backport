@@ -27,4 +27,4 @@ runs:
     - uses: actions/upload-artifact@v3
       with:
         name: mac-wheelsmac-wheels-${{ github.run_id }}-${{ runner.os }}-${{ runner.arch }}
-        path: python/target/wheels
+        path: target/wheels
