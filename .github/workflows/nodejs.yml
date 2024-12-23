@@ -1,14 +1,14 @@
 name: NodeJS (NAPI)
 
-on:
-  push:
-    branches:
-      - main
-  pull_request:
-    paths:
-      - nodejs/**
-      - .github/workflows/nodejs.yml
-      - docker-compose.yml
+# on:
+#   push:
+#     branches:
+#       - main
+#   pull_request:
+#     paths:
+#       - nodejs/**
+#       - .github/workflows/nodejs.yml
+#       - docker-compose.yml
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}

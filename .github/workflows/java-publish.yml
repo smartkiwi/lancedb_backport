@@ -1,10 +1,10 @@
 name: Build and publish Java packages
-on:
-  release:
-    types: [released]
-  pull_request:
-    paths:
-      - .github/workflows/java-publish.yml
+# on:
+#   release:
+#     types: [released]
+#   pull_request:
+#     paths:
+#       - .github/workflows/java-publish.yml
 
 jobs:
   macos-arm64:

@@ -24,3 +24,7 @@ runs:
         docker-options: "-e PIP_EXTRA_INDEX_URL=https://pypi.fury.io/lancedb/"
         working-directory: python
         interpreter: 3.${{ inputs.python-minor-version }}
+    - uses: actions/upload-artifact@v3
+      with:
+        name: mac-wheelsmac-wheels-${{ github.run_id }}-${{ runner.os }}-${{ runner.arch }}
+        path: python/target/wheels

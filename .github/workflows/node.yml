@@ -1,15 +1,15 @@
 name: Node
 
-on:
-  push:
-    branches:
-      - main
-  pull_request:
-    paths:
-      - node/**
-      - rust/ffi/node/**
-      - .github/workflows/node.yml
-      - docker-compose.yml
+# on:
+#   push:
+#     branches:
+#       - main
+#   pull_request:
+#     paths:
+#       - node/**
+#       - rust/ffi/node/**
+#       - .github/workflows/node.yml
+#       - docker-compose.yml
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}

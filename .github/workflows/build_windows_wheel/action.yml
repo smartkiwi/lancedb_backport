@@ -30,5 +30,5 @@ runs:
         working-directory: python
     - uses: actions/upload-artifact@v3
       with:
-        name: windows-wheels
+        name: windows-wheels-${{ github.run_id }}-${{ runner.os }}-${{ runner.arch }}
         path: python\target\wheels
